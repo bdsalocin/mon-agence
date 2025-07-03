@@ -4,10 +4,15 @@ services:
     ports:
       - "8080:80"
     container_name: mon_agence_frontend
+    volumes:
+      - ./frontend:/usr/local/apache2/htdocs/
 
   backend:
     build: ./backend
     container_name: mon_agence_backend
+    volumes:
+      - ./backend:/app
+
 
   database:
     image: mysql:8.0
