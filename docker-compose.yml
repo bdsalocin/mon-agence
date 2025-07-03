@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:80"
+    container_name: mon_agence_frontend
+
+  backend:
+    build: ./backend
+    container_name: mon_agence_backend
+
+  database:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: monagence
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    container_name: mon_agence_db
