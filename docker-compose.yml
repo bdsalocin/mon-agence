@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   frontend:
     build: ./frontend
@@ -21,3 +19,13 @@ services:
     ports:
       - "3306:3306"
     container_name: mon_agence_db
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: database
+      PMA_USER: user
+      PMA_PASSWORD: password
+    ports:
+      - "8081:80"
